@@ -1,15 +1,17 @@
+import Button from "@/components/Button";
+import { BlurView } from "expo-blur";
+import { router } from "expo-router";
 import {
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  ScrollView,
-  TextInput,
   KeyboardAvoidingView,
   Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  useWindowDimensions,
+  View,
 } from "react-native";
-import { BlurView } from "expo-blur";
-import { useWindowDimensions } from "react-native";
 
 const styles = StyleSheet.create({
   editBackground: {
@@ -40,9 +42,9 @@ const styles = StyleSheet.create({
     borderColor: "#ccc",
     borderRadius: 10,
     padding: 10,
-    fontSize:20,
-    textAlign:"center",
-    justifyContent:"center"
+    fontSize: 20,
+    textAlign: "center",
+    justifyContent: "center",
   },
 });
 
@@ -52,7 +54,7 @@ export default function CreateEvent() {
   return (
     <KeyboardAvoidingView
       style={{ flex: 1 }}
-      behavior={Platform.OS === "ios" ? "padding" : "height"} // important!
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       <ScrollView
         keyboardShouldPersistTaps="handled"
@@ -77,6 +79,14 @@ export default function CreateEvent() {
               style={styles.input}
               placeholder="Event Title"
               placeholderTextColor="#666"
+            />
+            <Button
+              title="Add Guests"
+              onPress={() => {
+                router.push("/event-details/guestList");
+              }}
+              bgColor="#007AFF"
+              textColor="#fff"
             />
           </BlurView>
         </View>
