@@ -1,9 +1,19 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import { Tabs } from "expo-router";
+import { Tabs, useSegments } from "expo-router";
 
 export default function RootLayout() {
+  const segment = useSegments();
+  console.log(segment);
+
   return (
-    <Tabs>
+    <Tabs
+      screenOptions={{
+        tabBarStyle: {
+          display:
+            segment[segment.length - 1] === "create-event" ? "none" : "flex",
+        },
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
@@ -18,6 +28,7 @@ export default function RootLayout() {
         options={{
           title: "Create",
           headerShown: false,
+
           tabBarIcon: ({ color }) => (
             <FontAwesome name="calendar-plus-o" size={24} color={color} />
           ),

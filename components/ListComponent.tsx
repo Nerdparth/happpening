@@ -5,10 +5,12 @@ const ListComponent = ({
   displayData,
   listTitle,
   Component,
+  maxHeight = 400,
 }: {
   displayData: any[];
   listTitle: string;
   Component: (item: any) => JSX.Element;
+  maxHeight?: number | "100%";
 }) => {
   return (
     <View
@@ -20,7 +22,7 @@ const ListComponent = ({
         paddingVertical: 24,
         borderRadius: 16,
         minHeight: 200,
-        maxHeight: 400,
+        maxHeight: maxHeight,
       }}
     >
       <Text style={{ fontSize: 24, fontWeight: "bold", marginBottom: 8 }}>
