@@ -1,14 +1,8 @@
 import ListComponent from "@/components/ListComponent";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import React from "react";
-import {
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from "react-native";
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
+import { SearchInList } from "../../components/SearchInList";
 
 const displayData = [
   { name: "Guest 1", hasAccepted: true },
@@ -48,26 +42,6 @@ const GuestList = () => {
         />
       </SafeAreaView>
     </ScrollView>
-  );
-};
-
-const SearchInList = () => {
-  return (
-    <TextInput
-      placeholder="Search guests..."
-      placeholderTextColor={"#999"}
-      style={{
-        backgroundColor: "#F2F2F7",
-        borderWidth: 1,
-        borderColor: "#ccc",
-        borderRadius: 8,
-        padding: 8,
-        paddingVertical: 14,
-        color: "#000",
-        marginTop: 16,
-        fontSize: 16,
-      }}
-    />
   );
 };
 
